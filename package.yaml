@@ -1,0 +1,76 @@
+name:                H-API
+version:             0.1.0.0
+github:              "initial-mockingbird/H-API"
+license:             BSD3
+author:              "Daniel Pinto"
+maintainer:          "Daniel.Andres.Pinto@gmail.com"
+copyright:           "2022 Daniel Pinto"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/H-API#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- mtl
+- random
+- servant
+- persistent
+- esqueleto
+- profunctors
+- time
+- product-profunctors
+- text
+- lens
+- persistent-postgresql
+- bytestring
+- monad-logger
+- safe-money
+- safe-money-cereal
+- cereal
+- aeson
+- http-api-data
+- path-pieces
+- template-haskell
+- cereal-text
+- hedgehog
+- conduit
+- dotenv
+- transformers
+- mmorph
+
+library:
+  source-dirs: src
+
+executables:
+  H-API-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - H-API
+
+tests:
+  H-API-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - H-API
